@@ -1,0 +1,29 @@
+<header style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
+  <div class="imageheader">
+    <img src="../../../../assets/Images/logo1.png" alt="LE LLOG" width="90px">
+  </div>
+
+  <nav>
+    <ul>
+      <li [routerLink]="['/accueil']" [ngClass]="{ 'active': isActive('/accueil') }">Accueil</li>
+      <li [routerLink]="['/depot']" [ngClass]="{ 'active': isActive('/depot') }">Dépôt</li>
+      <li [routerLink]="['/retrait']" [ngClass]="{ 'active': isActive('/retrait') }">Retrait</li>
+      <li [routerLink]="['/paiement']" [ngClass]="{ 'active': isActive('/paiement') }">Paiement</li>
+      
+      <!-- Highlight "Services" if any sub-route is active -->
+      <li [routerLink]="['/service/article']" 
+          [ngClass]="{ 'active': isActive('/service') }">Services</li>
+
+      <li [routerLink]="['/statistique']" [ngClass]="{ 'active': isActive('/statistique') }">Statistique</li>
+      <li [routerLink]="['/parametre/configuration']" 
+      [ngClass]="{ 'active': isActive('/parametre') }">Paramètres</li>
+    </ul>
+  </nav>
+
+  <div class="user">
+    <div class="user-profile">
+      <img src="../../../../assets/Images/logout-icon-19.jpg" alt="Déconnexion" width="30px" [routerLink]="['']" class="profile-image">
+      <span>username</span>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,87 @@
+<div class="col-lg-2 col-md-4  " style="height: 13%; ">
+    <app-header class="h-100"></app-header>
+</div>
+
+<div class="container-fluid h-100 border-dark">
+    <div class="row h-100 no-gutters">
+
+        <div class="col-lg-2 col-md-4  " style="height: 104%;  width: 150px;  background-color: #ccd7de80">
+            <app-menu class="h-100"></app-menu>
+        </div>
+
+        <section class="flex-grow-1 content-area" style="height: 104%;  background-color: #ccd7de80">
+
+            <div class="container">
+                <div class="carre">
+                    <div class="carrecontenu">
+                        <img src="../../../../assets/Images/sta.jpg" alt="jpg">
+                        <p>Versement du jour</p>
+                        <div class="number">{{ 20000 }} XOF</div>
+
+                    </div>
+                </div>
+
+                <div class="carre">
+                    <div class="carrecontenu">
+                        <img src="../../../../assets/Images/staff.png" alt="jpg">
+                        <p>Versement du jour</p>
+                        <div class="ret">{{ 20000 }} XOF</div>
+
+                    </div>
+                </div>
+                <div class="carre">
+                    <div class="carrecontenu">
+                        <img src="../../../../assets/Images/staf.png" alt="jpg">
+                        <p>Versement du jour</p>
+                        <div class="dep">{{ 20000 }} XOF</div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tableau">
+                <div class="arran">
+                    <div class="tableaucontenu"><span class="te">Retrait prevu</span></div>
+                    <div class="tab">{{ 2 }} <span class="tex">Personnes</span></div>
+
+                </div>
+                
+                <div class="menuLeft" style="color: black; background-color: white;">
+                    <div class="sales-details" style="color: rgb(9, 1, 1); ">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Code Depot</th>
+                                    <th>Client</th>
+                                    <th>Quantite</th>
+                                    <th>Prix (XOF)</th>
+                                    <th>Service</th>
+                                    <th>Date retrait prevu</th>
+                                    <th>Etat</th>
+                                    <th>Contact</th>
+                                </tr>
+                            </thead>
+                            <pre></pre>
+                            <tbody>
+                                <tr *ngFor="let pai of depots">
+                                    <td>{{ pai.nom }}</td>
+                                    <td>{{ pai.niveau }}</td>
+                                    <td>{{ pai.totalEtudiants }}</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+
+</div>

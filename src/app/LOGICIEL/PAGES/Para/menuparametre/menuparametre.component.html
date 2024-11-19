@@ -1,0 +1,25 @@
+
+<div class="card-container">
+    <mat-card class="card" [routerLink]="['/parametre/configuration']" routerLinkActive="active-card">
+        <img src="../../../../assets/Images/ser.png" height="40" width="40" priority>
+        <div class="ess">
+            <h3 [ngClass]="{'active': isActive('/parametre/configuration')}">Config</h3>
+        </div>
+    </mat-card>
+
+    <mat-card class="card" (click)="openUserDialog()" [routerLink]="['/parametre/utilisateur']" routerLinkActive="active-card">
+        <img src="../../../../assets/Images/serv.png" height="50" width="50" priority>
+        <div class="ess">
+            <h3 [ngClass]="{'active': isActive('/parametre/utilisateur')}">Utilisateur</h3>
+        </div>
+    </mat-card>
+
+
+
+    <mat-card class="card paie" (click)="openListeDialog()" [routerLink]="['/parametre/whatsapp']" routerLinkActive="active-card">
+        <img src="../../../../assets/Images/se.png" height="50" width="50" priority>
+        <div class="ess">
+            <h3 [ngClass]="{'active': isActive('/parametre/whatsapp')}">Whatsapp</h3>
+        </div>
+    </mat-card>
+</div>

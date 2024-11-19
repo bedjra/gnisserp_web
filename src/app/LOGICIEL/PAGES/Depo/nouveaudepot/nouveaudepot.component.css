@@ -1,0 +1,28 @@
+.all {
+    background-color: #ccd7de80;
+  }
+  
+  .contenair {
+    margin-left: 20px;
+    padding: 10px;
+    /* Optionnel : ajoute un peu de padding autour */
+    color: white;
+    /* Rend le texte blanc pour le contraste */
+  }
+  
+  
+  
+  .debut {
+    display: flex;
+    align-items: center;
+    /* Aligne les éléments verticalement au centre */
+    justify-content: space-between;
+    /* Espace entre le <h6> et le <button> */
+  }
+  
+  .debut h6 {
+    color: rgb(45, 112, 247);
+    margin: 0;
+    /* Enlève la marge par défaut de <h6> */
+  }
+  

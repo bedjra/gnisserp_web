@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.logo img {
+    height: 130px;
+}
+
+.title {
+    text-align:center;
+    margin-top: 0; /* Supprime la marge supérieure du conteneur */
+    
+    
+}
+
+.title h2 {
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0; /* Supprime la marge supérieure */
+}
+
+.title p {
+    margin: 5px 0; /* Garde la marge de 5px, mais tu peux ajuster si nécessaire */
+    font-size: 14px;
+    justify-content: center;
+}
+
+
+h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-decoration: none ;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f0f0f0;
+    border-bottom: 2px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+th.rounded-left {
+    border-top-left-radius: 10px;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+}
+th.rounded-middle {
+    border-top: 2px solid black;
+}
+th.rounded-right {
+    border-top-right-radius: 10px;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+}
+
+td:first-child, td:last-child {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+tbody td{
+    padding-top: 20px;
+}
+thead {
+    border-bottom: 2px solid black; /* Bordure inférieure pour séparer thead de tbody */
+}
+
+th {
+    background-color: #f0f0f0; /* Couleur d'arrière-plan pour les en-têtes */
+    padding: 10px;
+    text-align: center;
+}
+thead {
+    border-bottom: 2px solid black; /* Bordure inférieure pour séparer thead de tbody */
+}
+
+th {
+    background-color: #f0f0f0; /* Couleur d'arrière-plan pour les en-têtes */
+    padding: 10px;
+    text-align: center;
+}
+thead {
+    background-color: #f0f0f0; /* Couleur d'arrière-plan pour l'en-tête */
+    border-bottom: 2px solid black; /* Bordure inférieure plus épaisse */
+    padding-bottom: 10px; /* Espacement en bas */
+}

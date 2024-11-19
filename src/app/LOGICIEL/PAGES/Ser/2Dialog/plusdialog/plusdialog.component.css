@@ -1,0 +1,72 @@
+
+.contenair {
+    margin-left: 20px;
+    padding: 10px;
+    /* Optionnel : ajoute un peu de padding autour */
+    color: rgb(14, 1, 1);
+    /* Rend le texte blanc pour le contraste */
+  }
+  
+  
+  
+  .debut {
+    display: flex;
+    align-items: center;
+    /* Aligne les éléments verticalement au centre */
+    justify-content: space-between;
+    /* Espace entre le <h6> et le <button> */
+  }
+  
+  span{
+    color: orange;
+  }
+    h6 {
+      color: blue;
+      margin: 0;
+      position: relative; /* Nécessaire pour positionner la ligne */
+  }
+  
+  h6::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%; /* Ligne occupant toute la largeur */
+      height: 5px; /* Contrôle l'épaisseur de la ligne */
+      background-color: blue; /* Couleur de la ligne */
+  }
+
+  .arrangement {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Table styling */
+  .vertical-table {
+    width: 560px; 
+    height: 300px; 
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+  }
+  
+  .vertical-table th, .vertical-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+
+.payerbutt{
+  padding-top: 35px;
+
+}
+.custom-green {
+
+  margin-left: 415px;
+  background-color: #0097E6;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 20px ;
+  border-color: blue;
+  font-weight: bold;
+}

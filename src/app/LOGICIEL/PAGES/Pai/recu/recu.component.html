@@ -1,0 +1,48 @@
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="https://th.bing.com/th/id/R.f01b39787a674a801a66104819b198a7?rik=UrVtA3iPONmZyA&riu=http%3a%2f%2fd9webfactory.com%2fdefitech.tg%2ffiles%2flogos%2f13102020-100421_72364111_971610626506670_2157636662924935168_o.jpg&ehk=rIjeZHAn2LpWWZKXmkAPSV%2fHnXXlu8fEGhRgvFJYa%2fA%3d&risl=&pid=ImgRaw&r=0"
+                    alt="Institut Polytechnique DEFITECH" width="150" />
+            </div>
+            <div class="title">
+                <h2>MINISTERE DE L'ENSEIGNEMENT SUPERIEUR ET DE LA RECHERCHE (M.E.S.R)</h2>
+                <p>Année-scolaire : {{ currentYear }} </p>
+            </div>
+        </div>
+        <pre></pre>
+        <h3><strong>Fiche de renvoi</strong></h3>
+
+        <h3>Filière : {{ selectedFiliere }}</h3>
+    <h3>Niveau : {{ selectedNiveau }}</h3>
+    <h3>Date : {{ currentDate }}</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="rounded-left">Nom</th>
+                    <th class="rounded-middle">Prénom</th>
+                    <th class="rounded-middle">Montant de la réduction</th>
+                    <th class="rounded-right">Reste Ecolage </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paiement of paiements">
+                    <td>{{ paiement.etudiantNom }}</td>
+                    <td>{{ paiement.etudiantPrenom }}</td>
+                    <td>{{ paiement.reductionMontantFinal }} FCFA</td>
+                    <td [ngClass]="{'text-danger': paiement.resteEcolage > 0 }">
+                        {{ paiement.resteEcolage }} FCFA
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+   <h3>Filière : {{ selectedFiliere }}</h3>
+    <h3>Niveau : {{ selectedNiveau }}</h3>
+    <h3>Date : {{ currentDate }}</h3>
+
+    </div>
+</body>

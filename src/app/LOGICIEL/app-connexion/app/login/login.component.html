@@ -1,0 +1,76 @@
+<div class="all">
+  <div class="contenair">
+
+
+    <menu>
+      <div class="body">
+        <div class="menuLeft">
+          <div class="sales-details" style="color: rgb(9, 1, 1); ">
+            <img src="../../../../assets/Images/looog.png" alt="LE LLOG">
+            <p>
+              Gérez votre pressing en toute simplicité!!!
+            </p>
+
+          </div>
+        </div>
+
+        <div class="menuRight">
+          <div class="details" style="color: rgb(9, 1, 1);">
+
+            <h6>AUTHENTIFICATION</h6>
+            <form (ngSubmit)="onSearch()" class="col form-container">
+              <div class="formcontainer">
+                <div class="searchfield">
+                  <span class="details">Identifiant :</span>
+                  <pre></pre>
+                  <input type="text" [(ngModel)]="ident" name="Identifiant" required style="text-align: left;">
+                </div>
+              </div>
+
+
+
+              <div class="formcontainer">
+                <div class="searchfield">
+                  <span class="details">Mot de passe :</span>
+                  <pre></pre>
+                  <input [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="motDePasse"
+                    name="etudiantEtatProvenance" required style=" padding: 12px;
+                      width: 380px;
+                      border: 3px solid #ddd;
+                      border-radius: 5px;
+                      font-family: 'Roboto', sans-serif;">
+                </div>
+              </div>
+
+              <div class="afficherMotDEpASSE">
+                <input type="checkbox" id="showPasswordCheckbox" (change)="togglePasswordVisibility()">
+                <label for="showPasswordCheckbox">&nbsp; Afficher le mdp </label>
+              </div>
+
+
+              <div class="payerbutt">
+                <button type="submit" class="btn btn-primary custom-blue">Login</button>
+              </div>
+            </form>
+
+
+
+
+          </div>
+        </div>
+
+        <div class="menu">
+
+        </div>
+      </div>
+
+    </menu>
+     
+
+  </div>
+
+</div>
+<div class="footer">
+  <span  class="kitCorp">By </span> KitCorp
+
+</div>

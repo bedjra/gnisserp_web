@@ -1,0 +1,99 @@
+<div class="para">
+    <div class="all">
+        <div class="contenair">
+            <div class="debut">
+                <h6> WhatsApp
+                </h6>
+                <img src="../../../../assets/Images/Close.png" height="30px" alt="Fermer" class="icon"
+                    (click)="closeDialog()" style="margin-right: 10px;">
+            </div>
+            <pre></pre>
+
+            <div class="menuRight">
+                <div class="details" style="color: rgb(9, 1, 1);">
+
+                    <form (ngSubmit)="onSearch()" class="col form-container">
+                        <div class="arrangement">
+                            <div class="formcontainer">
+                                <div class="searchfield">
+                                    <span class="details">Numero WhatsApp</span>
+                                    <input type="text" [(ngModel)]="depots" name="etudiantPaysBac" required
+                                        style="text-align: left;">
+                                </div>
+
+                                <div class="searchfield">
+                                    <span class="details">Api URL </span>
+                                    <input type="text" [(ngModel)]="depots" name="etudiantEtatProvenance" required
+                                        style="text-align: left; width: 510px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arrangement">
+                            <div class="formcontainer">
+                                <div class="searchfield">
+                                    <span class="details"> WhatsApp
+
+                                        Bearer Token
+                                    </span> &nbsp;&nbsp;&nbsp;
+                                    <input type="text" [(ngModel)]="depots" name="etudiantPaysBac" required
+                                        style="text-align: left; width: 750px;">
+                                </div>
+                                <div class="searchfield">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="arrangement">
+                            <div class="formcontainer">
+                                <div class="searchfield">
+                                    <span class="details">Debut forfait
+                                    </span> &nbsp;
+                                    <input type="text" [(ngModel)]="depots" name="etudiantPaysBac" required
+                                        style="text-align: left;">
+                                </div>
+
+                                <div class="searchfield">
+                                    <span class="details">Fin forfait </span> &nbsp;
+                                    <input type="text" [(ngModel)]="depots" name="etudiantEtatProvenance" required
+                                        style="text-align: left;">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container " style="background-color: white;">
+        <div class="carre">
+            <div class="carrecontenu" style="background-color: #2F4433  ; color: #fdfffd;">
+                <p>Type d'abonnement</p>
+                <div class="number">{{ 20000 }}</div>
+
+            </div>
+        </div>
+
+        <div class="carre">
+            <div class="carrecontenu" style="background-color: #d4dfeb; color: #050000;">
+
+                <p>Nombre de message restant</p>
+                <div class="ret">{{ 20000 }} </div>
+
+            </div>
+        </div>
+        <div class="carre">
+            <div class="carrecontenu" style="background-color: #d4dfeb ;   color:  red;">
+                <p>Nombre de message utiliser</p>
+                <div class="dep">{{ 20000 }}</div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
