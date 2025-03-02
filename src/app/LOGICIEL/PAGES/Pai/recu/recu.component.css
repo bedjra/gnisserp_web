@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin-right: 20px;
+    margin-left: 20px;
+
+}
+
+
+
+.arrangement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo img {
+    height: 100px;
+    width: auto;
+    border: 1px solid #ccc;
+  }
+  
+  .text p {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .title p {
+    margin: 0;
+    text-align: right;
+  }
+  
+
+.title {
+    text-align: center;
+    margin-top: 0;
+    /* Supprime la marge supérieure du conteneur */
+}
+
+
+
+.title p {
+    margin: 5px 0;
+    /* Garde la marge de 5px, mais tu peux ajuster si nécessaire */
+    font-size: 14px;
+    justify-content: center;
+}
+
+
+span {
+    font-size: 25px;
+}
+
+p {
+    font-size: 16px;
+}
+
+.sub {
+    display: flex;
+    justify-content: space-between;
+}
+
+#service {
+    margin-right: 100px;
+}
+
+#dateret {
+    border: 2px solid black;
+    ;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 10px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f0f0f0;
+    border-bottom: 2px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+th.rounded-left {
+    border-top-left-radius: 10px;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+}
+
+th.rounded-middle {
+    border-top: 1px solid black;
+    border: 2px solid black;
+
+}
+
+th.rounded-right {
+    border-top-right-radius: 10px;
+    border: 2px solid black;
+    border-top: 2px solid black;
+}
+
+th.rounded-rigt {
+    border-top-right-radius: 10px;
+    border: 2px solid black;
+    border-top: 2px solid black;
+}
+
+td:first-child,
+td:last-child {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+tbody td {
+    padding-top: 20px;
+}
+
+thead {
+    border-bottom: 2px solid black;
+    /* Bordure inférieure pour séparer thead de tbody */
+}
+
+th {
+    background-color: #f0f0f0;
+    /* Couleur d'arrière-plan pour les en-têtes */
+    padding: 10px;
+    text-align: center;
+}
+
+thead {
+    border-bottom: 2px solid black;
+    /* Bordure inférieure pour séparer thead de tbody */
+}
+
+th {
+    background-color: #f0f0f0;
+    /* Couleur d'arrière-plan pour les en-têtes */
+    padding: 10px;
+    text-align: center;
+}
+
+thead {
+    background-color: #f0f0f0;
+    /* Couleur d'arrière-plan pour l'en-tête */
+    border-bottom: 2px solid black;
+    /* Bordure inférieure plus épaisse */
+    padding-bottom: 10px;
+    /* Espacement en bas */
+}

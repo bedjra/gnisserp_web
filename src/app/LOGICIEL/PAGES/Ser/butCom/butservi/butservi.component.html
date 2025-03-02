@@ -1,0 +1,45 @@
+<!-- Button Articles -->
+<div class="contenu">
+    <div class="body">
+        <div class="menuRight">
+            <div class="details" style="color: rgb(9, 1, 1);">
+                <form (ngSubmit)="onSearch()" class="col formcontainer">
+                    <table class="vertical-table">
+                        <thead>
+                            <tr>
+                                <th>Services</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let pai of depots">
+                                <td>{{ pai.niveau }}</td>
+                                <td>
+                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditForm"
+                                        style="color: black; border-color: black; background-color: #fff;">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </button>
+                                    <!-- Bouton pour supprimer -->
+                                    <button type="button" class="btn btn-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <div class="imagebs" (click)="openDialogue()">
+                    <img src="../../../../assets/Images/plus.png" height="30px" alt="Ajouter" class="icon"
+                        style="margin-left: 91%;">
+                </div>
+            </div>
+        </div>
+
+        <div class="menuLeft">
+
+           
+
+        </div>
+
+    </div>
+</div>

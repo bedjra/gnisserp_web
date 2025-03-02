@@ -1,0 +1,299 @@
+.all {
+  background-color: #ccd7de80;
+}
+
+.contenair {
+  margin-left: 20px;
+  padding: 10px;
+  /* Optionnel : ajoute un peu de padding autour */
+  color: white;
+  /* Rend le texte blanc pour le contraste */
+}
+
+
+
+.debut {
+  display: flex;
+  align-items: center;
+  /* Aligne les éléments verticalement au centre */
+  justify-content: space-between;
+  /* Espace entre le <h6> et le <button> */
+}
+
+.debut h6 {
+  color: rgb(45, 112, 247);
+  margin: 0;
+  /* Enlève la marge par défaut de <h6> */
+}
+
+/******HEADER    */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  background: white;
+  width: 700px;
+  height: 70px;
+  color: black;
+
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+
+.prob {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+
+
+.search-field select {
+  gap: 2px;
+  height: 30px;
+  width: 200%;
+}
+
+.col-auto {
+  display: flex;
+  align-items: center;
+}
+
+.btn-primary {
+  margin-left: 200px;
+  background-color: #007bff;
+  /* Couleur bleu */
+  color: white;
+  /* Couleur du texte en blanc */
+  border-radius: 50px;
+  /* Bord arrondi pour créer un effet cylindrique */
+  padding: 10px 20px;
+  /* Ajuste la taille et l'espacement */
+  border: none;
+  /* Supprime la bordure */
+  font-weight: bold;
+}
+
+/********MENU                 ***/
+
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Aligne verticalement les deux menus */
+}
+
+.menuLeft,
+.menuRight {
+  flex: 1;
+}
+
+
+/****** TABLE horizontale *******/
+/* Style for the table container */
+.sales-details {
+  margin: 10px;
+  border-radius: 8px;
+  height: 450px;
+}
+
+/* Table style */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+/* Header style */
+.table thead th {
+  color: #0b0000;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Body rows style */
+.table tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Hover effect on rows */
+.table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Column specific styles */
+.table tbody td:nth-child(1) {
+  color: #ff5733; /* Style pour la colonne "Code paie" */
+}
+
+.table tbody td:nth-child(2) {
+  color: #337ab7; /* Style pour la colonne "Date versement" */
+}
+
+.table tbody td:nth-child(3) {
+  font-weight: bold; /* Style pour la colonne "Somme" */
+}
+
+
+
+
+
+
+/* Adjustments for the body container to align both tables */
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align both tables at the top */
+  gap: 20px; /* Optional: Adds spacing between the tables */
+  padding: 20px;
+}
+
+/* Styling for menuLeft */
+.menuLeft {
+  background-color: white;
+  padding: 10px;
+  color: black;
+  width: 50px; /* Adjust width as needed */
+  height: 460px; /* Match the height with menuRight */
+}
+
+/* Styling for menuRight */
+.menuRight {
+  background: white;
+  padding: 10px;
+  color: black;
+  width: 50px;
+  height: 460px; /* Match height with the menuLeft */
+}
+
+/* Vertical table styling for alignment */
+.vertical-table {
+  width: 100%; /* Adjust width as needed */
+  border-collapse: collapse;
+  font-family: 'Roboto', sans-serif; /* Utilise la police UX-friendly */
+  font-size: 14px; /* Taille de la police pour une meilleure lisibilité */
+}
+
+
+/* Espacement entre les cellules */
+.vertical-table td {
+  padding: 10px 15px; /* Ajoute de l’espace entre les cellules */
+  border-bottom: 1px solid #ddd;
+}
+/* Style for the labels */
+.vertical-table td:first-child {
+  font-weight: bold;
+  color: #555;
+  padding-right: 10px;
+}
+
+/* Style for the values */
+.vertical-table td:last-child {
+  color: #000;
+}
+
+
+
+
+
+.formcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: 'Roboto', sans-serif; /* Utilise la police UX-friendly */
+  margin-top: 20px; /* Ajoute de l’espace entre le formulaire et le tableau */
+}
+
+.formcontainer .search-field {
+  display: flex;
+  gap: 7px; /* Ajoute de l’espace entre le label et l’input */
+}
+
+.formcontainer .search-field span.details {
+  font-weight: bold;
+  color: #555; /* Couleur pour un meilleur contraste */
+}
+
+.formcontainer input[type="number"] {
+  padding: 8px;
+  width: 200px;
+  border: 3px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.payerbutt{
+  padding-top: 15px;
+  padding-bottom: 20px;
+
+}
+.custom-green {
+
+  margin-left: 5px;
+  background-color: #00ff73;
+  /* Couleur bleu */
+  color: white;
+  /* Couleur du texte en blanc */
+  border-radius: 50px;
+  /* Bord arrondi pour créer un effet cylindrique */
+  padding: 10px 20px ;
+  border: none;
+  /* Supprime la bordure */
+  font-weight: bold;
+}
+
+.formcontainer {
+  display: flex; /* Use flexbox to arrange children horizontally */
+  justify-content: space-between; /* Space between the input fields */
+  align-items: center; /* Center align the items vertically */
+  margin-bottom: 5px; /* Adds space below the input fields for the button */
+}
+
+.searchfield {
+  gap: 7px; /* Ajoute de l’espace entre le label et l’input */
+  flex: 1; /* Allows each search field to take equal width */
+  margin-right: 15px; /* Space between the two fields */
+}
+
+
+
+.form-container {
+  display: flex; /* Utiliser flexbox pour disposer les éléments */
+  flex-direction: column; /* Aligner les éléments verticalement */
+}
+
+.arrangement {
+  margin-bottom: 10px; /* Ajouter de l'espace en bas de l'arrangement */
+}
+
+
+
+
+
+.blue-text {
+  color: rgb(96, 96, 255);
+}
+
+.black-text {
+  color: black;
+}
+
+.orange-text {
+  color: orange;
+}
