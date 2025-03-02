@@ -1,0 +1,157 @@
+<div class="all">
+
+
+    <div class="contenu">
+        <h6>Gestions des Clients</h6>
+        <pre></pre>
+
+
+        <div class="formcontainer">
+            <img src="../../../../assets/Images/Vector.png" alt="Actualiser" class="icon"> &nbsp;&nbsp;
+            <div class="searchfield">
+                <input type="text" [(ngModel)]="depots" name="etudiantPaysBac" required
+                    placeholder="Entrer le nom du Client">
+            </div>
+            <div class="user">
+                <div class="searchfield" style="color: blue;">
+                    Client &nbsp;&nbsp;
+                    <input type="text" [(ngModel)]="depots" name="etudiantPaysBac" required style="width: 60px;">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="arran">
+            <div class="tab">{{ 2 }} <span class="tex">Personnes</span></div>
+
+        </div>
+
+
+        <menu>
+
+            <div class="body">
+
+
+                <div class="menuRight">
+
+                </div>
+                <div class="menuLeft">
+                    <div class="salesdetails" style="color: rgb(9, 1, 1); ">
+                        <div class="paratouch">
+                            <div class="arrangement" style="margin-left: 20px; ">
+                                <div class="formcontainer">
+                                    <div class="searchfield">
+                                        <span class="details"> Nom </span> &nbsp;&nbsp;&nbsp;
+                                        <input type="text" [(ngModel)]="client.nom"  required>
+                                    </div>
+                                    <div class="searchfield">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrangement" style="margin-left: 20px;">
+                                <div class="formcontainer">
+                                    <div class="searchfield">
+                                        <span class="details">Prenom </span> &nbsp;&nbsp;&nbsp;
+                                        <input type="text" [(ngModel)]="client.prenom" name="etudiantPaysBac" required>
+                                    </div>
+                                    <div class="searchfield">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="arrangement" style="margin-left: 20px;">
+                                <div class="formcontainer">
+                                    <div class="searchfield">
+                                        <label for="depot" class="me-2">Sexe</label>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <select id="depot" name="depot" [(ngModel)]="selectedDepot" required>
+                                            <option *ngFor="let depot of depots" [value]="depot.nomClient">
+                                                {{ depot.nomClient }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="arrangement" style="margin-left: 20px;">
+                                <div class="formcontainer">
+                                    <div class="searchfield">
+                                        <span class="details"> Telephone </span> &nbsp;&nbsp;&nbsp;
+                                        <input type="text" [(ngModel)]="depots" name="etudiantPaysBac" required>
+                                    </div>
+                                    <div class="searchfield">
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="arrangement" style="margin-left: 20px;">
+                                <div class="formcontainer">
+                                    <div class="searchfield">
+                                        <span class="details">Prenom </span> &nbsp;&nbsp;&nbsp;
+                                        <input type="text" [(ngModel)]="depots" name="etudiantPaysBac" required>
+                                    </div>
+                                    <div class="searchfield">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="buttonAction">
+                                <div class="payerbutt">
+                                    <button type="submit" class="btn btn-primary custom-green"
+                                        style="background-color: #4CD137;">ENREGISTRER</button>
+                                </div>
+                                <div class="payerbutt">
+                                    <button type="submit" class="btn btn-primary custom-green"
+                                        style="background-color: #0097E6;">MODIFIER</button>
+                                </div>
+                                <div class="payerbutt">
+                                    <img src="../../../../assets/Images/sup.png" alt="delete" class="icon">
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+    </menu>
+</div>
+<div class="conta ">
+    <div class="carre">
+        <div class="carrecontenu" style="background-color: #2C4250;  ; color: #fdfffd;">
+            <p>Nombre de clients
+            <div class="dep">{{ 2 }}</div>
+
+        </div>
+    </div>
+
+    <div class="carre">
+        <div class="carrecontenu" style="background-color: #E67E22; color: #fdfffd;">
+
+            <p>Nombre de clients actifs </p>
+            <div class="dep">{{ 2 }} </div>
+
+        </div>
+    </div>
+    <div class="carre">
+        <div class="carrecontenu" style="background-color:#0097E6;   color: #fdfffd;">
+            <p>Nombre les 7 derniers jours</p>
+
+            <div class="dep">{{ 20 }}</div>
+
+        </div>
+    </div>
+
+
+</div>
+</div>

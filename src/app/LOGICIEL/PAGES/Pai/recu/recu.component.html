@@ -1,0 +1,58 @@
+<body>
+    <div class="container">
+        <div class="arrangement">
+            <div class="logo">
+                <img [src]="src$ | async" alt="Logo du pressing" />
+
+            </div>
+            <div class="text">
+                <p>{{ system.nom }}</p>
+                <p>{{ system.adresse }}</p>
+            </div>
+            <div class="title">
+                <p>Date : {{ currentDate }}</p>
+                <p>Facture : <span>#{{ currentDate }}</span></p>
+            </div>
+        </div>
+
+
+        <hr>
+        <div class="suivant">
+            <h5>Information</h5>
+            <p>Receptionniste : </p>
+            <p>Client : </p>
+            <p> Date depot: : </p>
+            <div class="sub">
+                <p id="dateret">&nbsp;Date de retrait : &nbsp; </p>
+                <p id="service">service : </p>
+
+            </div>
+
+
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="rounded-left">Qte</th>
+                    <th class="rounded-middle">Designation</th>
+                    <th class="rounded-middle">Traitement</th>
+                    <th class="rounded-right">Prix </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let depot of depots">
+                    <td>{{ depot.qte }}</td>
+                    <td>{{ depot.desi }}</td>
+                    <td>{{ depot.trai }}</td>
+                    <td>{{ depot.prix }} FCFA</td>
+                   
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</body>
