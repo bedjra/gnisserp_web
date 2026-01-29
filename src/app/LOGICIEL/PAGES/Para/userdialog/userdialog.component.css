@@ -12,11 +12,20 @@
     
 }
 
+
+.debut {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 h6 {
 
     color: #FFC515;
 }
 
+.user {
+    margin-right: 200px;
+}
 .user {
     margin-right: 200px;
 }
@@ -76,7 +85,7 @@ h6 {
     width: 100%;
     font-family: 'Roboto', sans-serif;
     /* Utilise la police UX-friendly */
-    margin-top: 20px;
+    margin-top: 10px;
     /* Ajoute de l’espace entre le formulaire et le tableau */
 }
 
