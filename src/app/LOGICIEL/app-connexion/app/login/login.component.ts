@@ -26,7 +26,7 @@ ident: any;
   onSearch() {
     // Logic for authentication goes here. 
     // For example:
-    if (this.ident === 'user' && this.motDePasse === '12') {
+    if (this.ident === 'admin' && this.motDePasse === 'admin') {
       // If login is successful, navigate to the 'accueil' route.
       this.router.navigate(['/accueil']);
     } else {
