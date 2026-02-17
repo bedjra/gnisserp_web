@@ -4,21 +4,19 @@
 
 <div class="container-fluid h-100 border-dark">
     <div class="row h-100 no-gutters">
-     
-        <div class="col-lg-2 col-md-4  " style="height: 640px;  width: 170px;   background-color: #ccd7de80 ">
+
+        <div class="col-lg-2 col-md-4  " style="height: 108%;  width: 170px;   background-color: #ccd7de80 ">
             <app-menuretraite class="h-100"></app-menuretraite>
         </div>
 
-        <div class="col-lg-10 col-md-8 col-sm-12 d-flex flex-column" >
-            <section  
-            class="flex-grow-1 content-area" style="height: 640px; width: 1363px; background-color:#ccd7de80 ;" >
-                <div class="contenu">
+        <section class="flex-grow-1 content-area" style="height: 108%; width: 1200px;  background-color: #ccd7de80">
+            <router-outlet></router-outlet>
+            <div class="contenu">
                 <img src="../../../../assets/Images/log2.png" alt="LE LLOG" width="700px">
             </div>
-            </section>
-          
-        </div>
-        
-        
+        </section>
+
+
+
     </div>
 </div>

@@ -10,11 +10,13 @@
 .contenu {
     margin-left: 50px;
 }
+
 .debut {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
+}
+
 h6 {
 
     color: #FFC515;
@@ -54,22 +56,27 @@ h6 {
 .menuRight {
     flex: 1;
 }
+
 /* Table styling */
 .vertical-table {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-  }
-  
-  .vertical-table th, .vertical-table td {
+}
+
+.vertical-table th,
+.vertical-table td {
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
-  }
+}
+
 /* Styling for menuLeft */
 .menuLeft {
     color: black;
     width: 50px;
+    margin-left: -60px;
+
 
 }
 
@@ -211,10 +218,12 @@ h6 {
 }
 
 .conta {
-    padding-top: 20px;
+    padding-top: 30px;
     display: flex;
-    margin-left: 50px;
-    gap: 100px;
+    margin-left: 30px;
+    gap: 10px;
+    padding-bottom: 20px;
+
 }
 
 .carre {
@@ -233,7 +242,8 @@ h6 {
     margin-left: 20px;
 
 }
-.dep{
+
+.dep {
     font-size: 32px;
     margin-left: 10px;
 }

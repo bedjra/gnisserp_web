@@ -1,17 +1,194 @@
 <div class="all">
-    <div class="contenair">
-      <div class="debut">
-        <h6> NOUVEAU DEPOT
-          <img src="../../../../assets/Images/Vector.png" height="20px" alt="Actualiser" class="icon">
-        </h6>
-        <img src="../../../../assets/Images/Close.png" height="30px" alt="Fermer" class="icon" (click)="closeDialog()">
-      </div>
-      <pre></pre>
-  
-      
-  
-    
-  
+  <div class="contenair">
+
+    <!-- Header -->
+    <div class="debut">
+      <h6>
+        NOUVEAU DEPOT <span class="depot-number">DPT002</span>
+        <img src="../../../../assets/Images/Vector.png" height="20" class="icon" (click)="refresh()">
+      </h6>
+      <img src="../../../../assets/Images/Close.png" height="30" class="icon close-icon" (click)="closeDialog()">
     </div>
-  
+
+    <!-- Client -->
+    <div class="client-section">
+      <button type="button" class="btn-select-client" (click)="selectClient()">
+        Selectionner un client
+      </button>
+
+      <div class="client-info" *ngIf="clientInfo.nom">
+        <span><strong>Nom:</strong> {{ clientInfo.nom }}</span>
+        <span><strong>Contact:</strong> {{ clientInfo.contact }}</span>
+        <span><strong>A savoir:</strong> {{ clientInfo.aSavoir }}</span>
+      </div>
+    </div>
+
+    <!-- Catégories -->
+    <div class="categories">
+      <button
+        type="button"
+        [class.active]="selectedCategory === 'TOUS'"
+        (click)="selectCategory('TOUS')">TOUS</button>
+
+      <button
+        type="button"
+        [class.active]="selectedCategory === 'HOMME'"
+        (click)="selectCategory('HOMME')">HOMME</button>
+
+      <button
+        type="button"
+        [class.active]="selectedCategory === 'FEMME'"
+        (click)="selectCategory('FEMME')">FEMME</button>
+
+      <button
+        type="button"
+        [class.active]="selectedCategory === 'ENFANT'"
+        (click)="selectCategory('ENFANT')">ENFANT</button>
+    </div>
+
+    <!-- Articles --
+    <div class="articles-grid">
+      <div
+        *ngFor="let article of articlesAffiches"
+        class="article-card"
+        [class.selected]="selectedArticle === article.nom"
+        (click)="selectArticle(article)">
+        <div class="article-image"></div>
+        <p>{{ article.nom }}</p>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-row">
+
+        <div class="form-group">
+          <label>Article</label>
+          <input type="text" [(ngModel)]="currentItem.article" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Type de traitement</label>
+          <select [(ngModel)]="currentItem.typeTraitement">
+            <option value="">Sélectionner</option>
+            <option>LAVAGE</option>
+            <option>LAVAGE ET REPASSAGE</option>
+            <option>REPASSAGE</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Détail</label>
+          <input type="text" [(ngModel)]="currentItem.detail">
+        </div>
+
+        <div class="form-group">
+          <label>Prix (XOF)</label>
+          <input type="number" [(ngModel)]="currentItem.prix">
+        </div>
+
+        <div class="form-group">
+          <label>Quantité</label>
+          <div class="quantity-control">
+            <input type="number" [(ngModel)]="currentItem.quantite" min="1">
+            <div class="quantity-buttons">
+              <button type="button" (click)="incrementQuantite()">▲</button>
+              <button type="button" (click)="decrementQuantite()">▼</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Plus (XOF)</label>
+          <input type="number" [(ngModel)]="currentItem.plus">
+        </div>
+
+        <button type="button" class="btn-add" (click)="addItem()">✓</button>
+      </div>
+    </div>
+
+    <div class="depot-section">
+      <h5>Dépôt</h5>
+
+      <table class="depot-table" *ngIf="depotItems.length">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Article</th>
+            <th>Qté</th>
+            <th>Plus</th>
+            <th>Prix</th>
+            <th>Service</th>
+            <th>Détail</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of depotItems; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td class="text-blue">{{ item.article }}</td>
+            <td>{{ item.quantite }}</td>
+            <td>{{ item.plus }}</td>
+            <td>{{ item.prix }}</td>
+            <td>{{ item.typeTraitement }}</td>
+            <td>{{ item.detail }}</td>
+            <td>
+              <button type="button" class="btn-delete" (click)="deleteItem(i)">🗑</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <-- Dates --
+    <div class="dates-section">
+      <div class="form-group">
+        <label>Date de dépôt</label>
+        <input type="date" [(ngModel)]="dateDepot">
+      </div>
+
+      <div class="form-group">
+        <label>Date de retrait</label>
+        <input type="date" [(ngModel)]="dateRetrait">
+      </div>
+
+      <div class="form-group">
+        <label>Service</label>
+        <select [(ngModel)]="service">
+          <option>NORMAL</option>
+          <option>EXPRESS</option>
+          <option>URGENT</option>
+        </select>
+      </div>
+    </div>
+
+    !-- Footer --
+    <div class="footer-section">
+      <div class="totals">
+        <div class="total-item">
+          <span>TOTAL</span>
+          <h3>{{ calculateTotal() | number:'1.0-0' }} <small>XOF</small></h3>
+        </div>
+
+        <div class="total-item">
+          <span>ACCOMPTE</span>
+          <input type="number" [(ngModel)]="accompte" class="input-total">
+        </div>
+
+        <div class="total-item">
+          <span>REMISE</span>
+          <input type="number" [(ngModel)]="remise" class="input-total">
+        </div>
+
+        <div class="total-item reste">
+          <span>RESTE</span>
+          <h3>{{ calculateReste() | number:'1.0-0' }} <small>XOF</small></h3>
+        </div>
+      </div>
+
+      <button type="button" class="btn-submit" (click)="submitDepot()">
+        SOUMETTRE
+      </button>
+    </div>
+---->
   </div>
+</div>

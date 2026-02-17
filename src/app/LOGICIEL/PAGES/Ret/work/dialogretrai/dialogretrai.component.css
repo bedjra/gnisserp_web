@@ -167,6 +167,7 @@
 .menuLeft {
   background-color: white;
   padding: 10px;
+  margin-left: -60px;
   color: black;
   width: 50px; /* Adjust width as needed */
   height: 460px; /* Match the height with menuRight */
