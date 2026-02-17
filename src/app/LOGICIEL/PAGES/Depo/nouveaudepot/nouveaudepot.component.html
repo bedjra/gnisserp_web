@@ -1,194 +1,163 @@
 <div class="all">
   <div class="contenair">
 
-    <!-- Header -->
-    <div class="debut">
-      <h6>
-        NOUVEAU DEPOT <span class="depot-number">DPT002</span>
-        <img src="../../../../assets/Images/Vector.png" height="20" class="icon" (click)="refresh()">
-      </h6>
-      <img src="../../../../assets/Images/Close.png" height="30" class="icon close-icon" (click)="closeDialog()">
+    <div class="modal">
+    <div class="modal-header">
+        <h2>NOUVEAU DEPOT</h2>
+        <span class="badge">DPT002</span>
+        <button class="refresh-btn" title="Rafraîchir">⟳</button>
+        <button class="close-btn">✕</button>
     </div>
 
-    <!-- Client -->
-    <div class="client-section">
-      <button type="button" class="btn-select-client" (click)="selectClient()">
-        Selectionner un client
-      </button>
-
-      <div class="client-info" *ngIf="clientInfo.nom">
-        <span><strong>Nom:</strong> {{ clientInfo.nom }}</span>
-        <span><strong>Contact:</strong> {{ clientInfo.contact }}</span>
-        <span><strong>A savoir:</strong> {{ clientInfo.aSavoir }}</span>
-      </div>
+    <div class="client-row">
+        <button class="btn-select">Selectionner un client</button>
+        <div class="client-field">
+            <label>Nom:</label>
+            <input type="text" placeholder="">
+        </div>
+        <div class="client-field">
+            <label>Contact:</label>
+            <input type="text" placeholder="">
+        </div>
+        <div class="client-field">
+            <label>A savoir:</label>
+            <input type="text" placeholder="" style="min-width:200px">
+        </div>
     </div>
 
-    <!-- Catégories -->
-    <div class="categories">
-      <button
-        type="button"
-        [class.active]="selectedCategory === 'TOUS'"
-        (click)="selectCategory('TOUS')">TOUS</button>
-
-      <button
-        type="button"
-        [class.active]="selectedCategory === 'HOMME'"
-        (click)="selectCategory('HOMME')">HOMME</button>
-
-      <button
-        type="button"
-        [class.active]="selectedCategory === 'FEMME'"
-        (click)="selectCategory('FEMME')">FEMME</button>
-
-      <button
-        type="button"
-        [class.active]="selectedCategory === 'ENFANT'"
-        (click)="selectCategory('ENFANT')">ENFANT</button>
-    </div>
-
-    <!-- Articles --
-    <div class="articles-grid">
-      <div
-        *ngFor="let article of articlesAffiches"
-        class="article-card"
-        [class.selected]="selectedArticle === article.nom"
-        (click)="selectArticle(article)">
-        <div class="article-image"></div>
-        <p>{{ article.nom }}</p>
-      </div>
-    </div>
-
-    <div class="form-section">
-      <div class="form-row">
-
-        <div class="form-group">
-          <label>Article</label>
-          <input type="text" [(ngModel)]="currentItem.article" readonly>
-        </div>
-
-        <div class="form-group">
-          <label>Type de traitement</label>
-          <select [(ngModel)]="currentItem.typeTraitement">
-            <option value="">Sélectionner</option>
-            <option>LAVAGE</option>
-            <option>LAVAGE ET REPASSAGE</option>
-            <option>REPASSAGE</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Détail</label>
-          <input type="text" [(ngModel)]="currentItem.detail">
-        </div>
-
-        <div class="form-group">
-          <label>Prix (XOF)</label>
-          <input type="number" [(ngModel)]="currentItem.prix">
-        </div>
-
-        <div class="form-group">
-          <label>Quantité</label>
-          <div class="quantity-control">
-            <input type="number" [(ngModel)]="currentItem.quantite" min="1">
-            <div class="quantity-buttons">
-              <button type="button" (click)="incrementQuantite()">▲</button>
-              <button type="button" (click)="decrementQuantite()">▼</button>
+    <div class="modal-body">
+        <div class="cat-articles">
+            <div class="categories">
+                <button class="cat-btn active">TOUS</button>
+                <button class="cat-btn">HOMME</button>
+                <button class="cat-btn">FEMME</button>
+                <button class="cat-btn">ENFANT</button>
             </div>
-          </div>
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-img"></div>
+                    <span class="article-label">Chemise</span>
+                </div>
+                <div class="article-card">
+                    <div class="article-img"></div>
+                    <span class="article-label">Pantalon</span>
+                </div>
+                <div class="article-card">
+                    <div class="article-img"></div>
+                    <span class="article-label">Veste</span>
+                </div>
+                <div class="article-card">
+                    <div class="article-img"></div>
+                    <span class="article-label">Costa</span>
+                </div>
+                <div class="article-card">
+                    <div class="article-img"></div>
+                    <span class="article-label">Good Luck Simple</span>
+                </div>
+                <div class="article-card">
+                    <div class="article-img"></div>
+                    <span class="article-label">Robe</span>
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
-          <label>Plus (XOF)</label>
-          <input type="number" [(ngModel)]="currentItem.plus">
+        <div class="form-fields">
+            <div class="form-group fg-article">
+                <label>Article</label>
+                <input type="text" placeholder="">
+            </div>
+            <div class="form-group fg-type">
+                <label>Type de traitement:</label>
+                <select><option value="">— Choisir —</option></select>
+            </div>
+            <div class="form-group fg-detail">
+                <label>Detail:</label>
+                <input type="text" placeholder="">
+            </div>
+            <div class="form-group fg-prix">
+                <label>Prix (XOF):</label>
+                <input type="number" placeholder="">
+            </div>
+            <div class="form-group fg-qty">
+                <label>Quantite:</label>
+                <div class="qty-input">
+                    <input type="number" value="0">
+                    <div class="qty-btns">
+                        <button type="button" class="btn-up">▲</button>
+                        <button type="button" class="btn-down">▼</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group fg-plus">
+                <label>Plus (XOF):</label>
+                <input type="number" value="0">
+            </div>
+            <button class="add-btn" title="Ajouter">✓</button>
         </div>
 
-        <button type="button" class="btn-add" (click)="addItem()">✓</button>
-      </div>
+        <div class="depot-section">
+            <div class="depot-title">Depot</div>
+            <div class="depot-body">
+                <div class="depot-table-area">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>*</th>
+                                <th>Article</th>
+                                <th>Quantite:</th>
+                                <th>Plus (XOF):</th>
+                                <th>Prix (XOF):</th>
+                                <th>Service</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="depot-empty">
+                                <td colspan="7"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="depot-right">
+                    <div class="date-group">
+                        <label>Date de depot</label>
+                        <input type="text" value="10 / 12 / 2023">
+                    </div>
+                    <div class="date-group">
+                        <label>Date de retrait</label>
+                        <input type="text" placeholder="">
+                    </div>
+                    <div class="date-group">
+                        <label>Service:</label>
+                        <select>
+                            <option>NORMAL</option>
+                            <option>EXPRESS</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="depot-section">
-      <h5>Dépôt</h5>
-
-      <table class="depot-table" *ngIf="depotItems.length">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Article</th>
-            <th>Qté</th>
-            <th>Plus</th>
-            <th>Prix</th>
-            <th>Service</th>
-            <th>Détail</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of depotItems; let i = index">
-            <td>{{ i + 1 }}</td>
-            <td class="text-blue">{{ item.article }}</td>
-            <td>{{ item.quantite }}</td>
-            <td>{{ item.plus }}</td>
-            <td>{{ item.prix }}</td>
-            <td>{{ item.typeTraitement }}</td>
-            <td>{{ item.detail }}</td>
-            <td>
-              <button type="button" class="btn-delete" (click)="deleteItem(i)">🗑</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="modal-footer">
+        <div class="footer-field">
+            <label>TOTAL:</label>
+            <div class="amount">0 <span>XOF</span></div>
+        </div>
+        <div class="footer-field">
+            <label>ACCOMPTE:</label>
+            <input type="number" value="0">
+        </div>
+        <div class="footer-field">
+            <label>REMISE:</label>
+            <input type="number" value="0">
+        </div>
+        <div class="footer-field reste-block">
+            <label>RESTE A PAYER:</label>
+            <div class="reste-amount">0 <span>XOF</span></div>
+        </div>
+        <button class="submit-btn">SOUMETTRE</button>
     </div>
-
-    <-- Dates --
-    <div class="dates-section">
-      <div class="form-group">
-        <label>Date de dépôt</label>
-        <input type="date" [(ngModel)]="dateDepot">
-      </div>
-
-      <div class="form-group">
-        <label>Date de retrait</label>
-        <input type="date" [(ngModel)]="dateRetrait">
-      </div>
-
-      <div class="form-group">
-        <label>Service</label>
-        <select [(ngModel)]="service">
-          <option>NORMAL</option>
-          <option>EXPRESS</option>
-          <option>URGENT</option>
-        </select>
-      </div>
-    </div>
-
-    !-- Footer --
-    <div class="footer-section">
-      <div class="totals">
-        <div class="total-item">
-          <span>TOTAL</span>
-          <h3>{{ calculateTotal() | number:'1.0-0' }} <small>XOF</small></h3>
-        </div>
-
-        <div class="total-item">
-          <span>ACCOMPTE</span>
-          <input type="number" [(ngModel)]="accompte" class="input-total">
-        </div>
-
-        <div class="total-item">
-          <span>REMISE</span>
-          <input type="number" [(ngModel)]="remise" class="input-total">
-        </div>
-
-        <div class="total-item reste">
-          <span>RESTE</span>
-          <h3>{{ calculateReste() | number:'1.0-0' }} <small>XOF</small></h3>
-        </div>
-      </div>
-
-      <button type="button" class="btn-submit" (click)="submitDepot()">
-        SOUMETTRE
-      </button>
-    </div>
----->
+</div>
   </div>
 </div>
