@@ -28,6 +28,8 @@ export class ArticleService {
     return this.http.post<Article>(this.apiUrl, article);
   }
 
+  
+
   // ✅ PUT /article
   update(article: Article): Observable<Article> {
     return this.http.put<Article>(this.apiUrl, article);

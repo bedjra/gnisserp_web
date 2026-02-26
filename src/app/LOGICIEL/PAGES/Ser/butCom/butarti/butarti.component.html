@@ -1,72 +1,69 @@
 <div class="contenu">
-  <div class="body">
+    <div class="body">
 
-    <!-- TABLE ARTICLES -->
-    <div class="menuRight">
-      <div class="details">
-        <table class="vertical-table">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Libelle</th>
-              <th>Image</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let article of articles">
-              <td>{{ article.id }}</td>
-              <td>{{ article.libelle }}</td>
-              <td>
-                <img [src]="article.image" width="50" *ngIf="article.image">
-              </td>
-              <td>
-                <button class="btn btn-primary"
-                        (click)="selectedArticleId = article.id">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <!-- TABLE ARTICLES -->
+        <div class="menuRight">
+            <div class="details">
+                <table class="vertical-table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Libelle</th>
+                            <th>Image</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let article of articles">
+                            <td>{{ article.id }}</td>
+                            <td>{{ article.libelle }}</td>
+                            <td>
+                                <img [src]="article.image || '../../../../assets/Images/chrr.png'" width="50"
+                                    alt="article image">
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" (click)="selectedArticleId = article.id">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-        <div class="imagebs" (click)="openDialogue()">
-          <img src="../../../../assets/Images/plus.png"
-               height="30"
-               alt="Ajouter">
+                <div class="imagebs" (click)="openDialogue()">
+                    <img src="../../../../assets/Images/plus.png" height="30px" alt="Ajouter" class="icon"
+                        style="margin-left: 91%;">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- TABLE ARTICLE PRESTATIONS -->
-    <div class="menuLeft">
-      <div class="sales-details">
-        <table class="vertical-table">
-          <thead>
-            <tr>
-              <th>NumP</th>
-              <th>Prestation</th>
-              <th>Prix</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let article of articles">
-              <ng-container *ngFor="let ap of article.articlePrestations">
-                <td>{{ ap.id }}</td>
-                <td>{{ ap.prestation.libelle }}</td>
-                <td>{{ ap.prix }}</td>
-              </ng-container>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="imagebas" (click)="openplusDialogue()">
-          <img src="../../../../assets/Images/plus.png"
-               height="30"
-               alt="Ajouter">
+        <!-- TABLE ARTICLE PRESTATIONS -->
+        <div class="menuLeft">
+            <div class="sales-details">
+                <table class="vertical-table">
+                    <thead>
+                        <tr>
+                            <th>NumP</th>
+                            <th>Prestation</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let article of articles">
+                            <ng-container *ngFor="let ap of article.articlePrestations">
+                                <td>{{ ap.id }}</td>
+                                <td>{{ ap.prestation.libelle }}</td>
+                                <td>{{ ap.prix }}</td>
+                            </ng-container>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="imagebas" (click)="openplusDialogue()">
+                    <img src="../../../../assets/Images/plus.png" height="30px" alt="Ajouter" class="icon"
+                        style="margin-left: 85%;">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div>
+    </div>
 </div>

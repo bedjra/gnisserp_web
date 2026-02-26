@@ -1,32 +1,57 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { NouveauComponent } from '../../../Pai/nouveau/nouveau.component';
+import { Article } from '../../../../MODELS/article';
+import { ArticleService } from '../../../../SERVICES/article.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dialogue',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule], // ✅ IMPORTANT
   templateUrl: './dialogue.component.html',
   styleUrl: './dialogue.component.css'
 })
 export class DialogueComponent {
-  depots: any[] = []; // Liste des depots
-  selectedDepot: string = '';
-  constructor(private dialogRef: MatDialogRef<NouveauComponent>) {}
 
-  closeDialog() {
-    this.dialogRef.close();
-  }
+  article: Article = {
+    id: 0,
+    libelle: '',
+    image: '',
+    articlePrestations: []
+  };
 
-  onSearch(): void {
-    if (!this.selectedDepot) {
-      alert('Veuillez sélectionner un depot.');
+  loading: boolean = false;
+
+  constructor(
+    private articleService: ArticleService,
+    private dialogRef: MatDialogRef<DialogueComponent>
+  ) {}
+
+  // ✅ AJOUT ARTICLE
+  onSubmit(): void {
+
+    if (!this.article.libelle) {
+      alert('Le libellé est obligatoire');
       return;
     }
-  
-    const url = `http://localhost:8060/api/comptable/by-filiere-and-niveau?nomFiliere=${this.selectedDepot}`;
-  
-    console.log('Depot sélectionnée:', this.selectedDepot);
-  
+
+    this.loading = true;
+
+    this.articleService.create(this.article).subscribe({
+      next: (response) => {
+        this.loading = false;
+        console.log('✅ SUCCESS - Article ajouté :', response);
+        this.dialogRef.close(true);
+      },
+      error: (err) => {
+        this.loading = false;
+        console.error('❌ Erreur ajout article', err);
+      }
+    });
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close();
   }
 }
