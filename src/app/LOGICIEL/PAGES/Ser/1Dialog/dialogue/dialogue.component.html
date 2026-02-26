@@ -1,54 +1,61 @@
 <div class="all">
+
   <div class="contenair">
     <div class="debut">
-      <h6> </h6>
+      <h6>
+        <span>
+          {{ isEditMode ? 'MODIFICATION ARTICLE' : 'AJOUT D\'ARTICLE' }}
+        </span>
+      </h6>
       <img src="../../../../assets/Images/Close.png" height="30px" alt="Fermer" class="icon" (click)="closeDialog()">
     </div>
-    <h6><span>AJOUT D'ARTICLE </span>
-      <hr>
-    </h6>
+
+
+
   </div>
 
   <div class="paratouch">
+
     <form (ngSubmit)="onSubmit()" #form="ngForm" class="col form-container">
 
-      <div class="arrangement" style="margin-left: 20px; ">
+      <div class="arrangement" style="margin-left: 20px;">
+
+        <!-- LIBELLE -->
         <div class="formcontainer">
           <div class="searchfield">
             <input type="text" name="libelle" required [(ngModel)]="article.libelle" placeholder="Libelle"
               style="height: 30px; width: 60%;">
           </div>
 
-
-          <div class="formcontainer">
-            <div class="searchfield">
-              <input type="text" name="image" [(ngModel)]="article.image" placeholder="Image (optionnel)"
-                style="height: 30px; width: 55%;">
-            </div>
-
+          <!-- IMAGE URL -->
+          <div class="searchfield">
+            <input type="text" name="image" [(ngModel)]="article.image" placeholder="Image (optionnel)"
+              style="height: 30px; width: 55%;">
           </div>
+
         </div>
 
+        <!-- IMAGE PREVIEW -->
         <div class="Imagecontainer">
 
-          <div class="searchfield">
-
-            <!-- ✅ Image saisie -->
-            <img *ngIf="article.image" [src]="article.image" alt="Article image" width="150">
-
-            <!-- ✅ Image par défaut si vide -->
-            <img *ngIf="!article.image" src="../../../../assets/Images/chrr.png" alt="Actualiser" width="150">
-
-          </div>
+          <img [src]="article.image || '../../../../assets/Images/chrr.png'" alt="Article image" width="150">
 
         </div>
+
       </div>
+
+      <!-- BUTTON -->
       <div class="payerbutt">
         <button type="submit" class="btn btn-primary custom-green" [disabled]="form.invalid || loading">
-          {{ loading ? 'Enregistrement...' : 'Enregistrer' }}
+
+          {{ loading ? 'Enreg...' :
+          (isEditMode ? 'Modifier' : 'Enregistrer') }}
+
         </button>
       </div>
+
     </form>
+
   </div>
 
 </div>

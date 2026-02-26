@@ -73,4 +73,21 @@ export class ButartiComponent {
       panelClass: 'blue-dialog'
     });
   }
+
+  openEditDialog(article: Article) {
+
+    const dialogRef = this.dialog.open(DialogueComponent, {
+      width: '50vw',
+      height: '60vh',
+      panelClass: 'blue-dialog',
+      data: article // 🔥 on envoie l'article
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.getArticles(); // refresh après modification
+      }
+    });
+
+  }
 }
