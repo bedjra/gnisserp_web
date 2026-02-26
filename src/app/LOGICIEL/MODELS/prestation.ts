@@ -1,5 +1,6 @@
 import { ArticlePrestation } from "./article-prestation";
 
+
 export interface Prestation {
     id: number;
     libelle: string;

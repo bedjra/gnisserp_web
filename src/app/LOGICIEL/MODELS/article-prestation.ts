@@ -1,4 +1,7 @@
+import { Prestation } from "./prestation";
+
 export interface ArticlePrestation {
     id: number;
-    autreChamps: string;
+    prix: number;
+    prestation: Prestation; // ← NON nullable
 }
