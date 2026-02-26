@@ -27,6 +27,7 @@ h6 {
 }
 
 h6::after {
+  top: 40px;
   content: "";
   position: absolute;
   bottom: 0;
