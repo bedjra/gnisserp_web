@@ -50,7 +50,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let client of Client | slice: 0:visibleClients">
+                            <!-- ⚡ Utiliser pagedClients -->
+                            <tr *ngFor="let client of pagedClients" (click)="selectClient(client)"
+                                style="cursor:pointer">
                                 <td>{{ client.id }}</td>
                                 <td>{{ client.nom }}</td>
                                 <td>{{ client.prenom }}</td>
@@ -61,10 +63,13 @@
                         </tbody>
                     </table>
 
-                    <!-- Bouton Voir Plus -->
-                    <button *ngIf="visibleClients < Client.length" (click)="loadMore()">Voir plus</button>
+                    <!-- Pagination -->
+                    <div class="pagination" style="margin-top:10px;">
+                        <button (click)="prevPage()" [disabled]="currentPage === 1">Précédent</button>
+                        <span style="margin: 0 10px;">Page {{ currentPage }} / {{ totalPages }}</span>
+                        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Suivant</button>
+                    </div>
                 </div>
-
 
                 <div class="menuLeft">
                     <div class="salesdetails" style="color: rgb(9, 1, 1);">
@@ -149,8 +154,7 @@
                                     <!-- Bouton ENREGISTRER -->
                                     <div class="payerbutt">
                                         <button type="button" class="btn btn-primary custom-green"
-                                            style="background-color: #4CD137;" (click)="onSave()"
-                                            [disabled]="clientForm.invalid">
+                                            style="background-color: #4CD137;" (click)="onSave()">
                                             ENREGISTRER
                                         </button>
                                     </div>
@@ -164,7 +168,7 @@
                                     </div>
 
                                     <!-- Bouton SUPPRIMER -->
-                                    <div class="payerbutt" (click)="onDelete()">
+                                    <div class="payerbutt" (click)="onDelete()" style="cursor: pointer;">
                                         <img src="../../../../assets/Images/sup.png" alt="delete" class="icon">
 
                                     </div>
@@ -188,7 +192,7 @@
 
         </menu>
     </div>
-    
+
     <div class="conta ">
         <div class="carre">
             <div class="carrecontenu" style="background-color: #2C4250;  ; color: #fdfffd;">

@@ -1,0 +1,51 @@
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // Gestion des boutons de catégorie
+    const catButtons = document.querySelectorAll('.cat-btn');
+    catButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            catButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+
+    // Sélection des cartes d'articles
+    const articleCards = document.querySelectorAll('.article-card');
+    articleCards.forEach(card => {
+        card.addEventListener('click', () => {
+            articleCards.forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            
+            // Exemple : Remplir automatiquement le champ "Article" au clic
+            const label = card.querySelector('.article-label').innerText;
+            const articleInput = document.querySelector('.fg-article input');
+            if(articleInput) articleInput.value = label;
+        });
+    });
+
+    // Gestion des boutons de quantité (+ / -)
+    const qtyInput = document.querySelector('.qty-input input');
+    const btnUp = document.querySelector('.btn-up');
+    const btnDown = document.querySelector('.btn-down');
+
+    if (btnUp && btnDown && qtyInput) {
+        btnUp.addEventListener('click', () => {
+            qtyInput.value = parseInt(qtyInput.value || 0) + 1;
+        });
+
+        btnDown.addEventListener('click', () => {
+            const currentVal = parseInt(qtyInput.value || 0);
+            qtyInput.value = Math.max(0, currentVal - 1);
+        });
+    }
+
+    // Gestion du bouton Fermer (simple log pour l'exemple)
+    const closeBtn = document.querySelector('.close-btn');
+    if(closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            if(confirm("Voulez-vous vraiment fermer cette fenêtre ?")) {
+                console.log("Fenêtre fermée");
+            }
+        });
+    }
+});
