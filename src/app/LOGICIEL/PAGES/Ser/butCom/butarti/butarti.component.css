@@ -36,11 +36,16 @@
   font-size: 14px;
 }
 
-.vertical-table th, .vertical-table td {
-  padding: 5px 5px;
+.vertical-table th {
+  padding: 2px 2px;
   border-bottom: 1px solid #ddd;
 }
 
+.vertical-table td {
+  padding: 1px 1px;
+  padding-left: 50px;
+  border-bottom: 1px solid #ddd;
+}
 /* Form container */
 .formcontainer {
   display: flex;
