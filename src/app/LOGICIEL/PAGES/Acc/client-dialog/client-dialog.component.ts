@@ -81,11 +81,27 @@ prevPage(): void {
     this.totalClients = this.Client.length;
   }
 
-  onSearch(): void {
-    this.currentPage = 1;
+ keyword: string = '';
+
+onSearch(): void {
+  this.currentPage = 0;
+
+  if (!this.keyword || this.keyword.trim() === '') {
     this.getAllClients();
+    return;
   }
 
+  this.clientService.search(this.keyword, this.currentPage)
+    .subscribe({
+      next: (data) => {
+        this.getAllClients = data.content;   // si backend retourne Page<>
+        this.totalPages = data.totalPages;
+      },
+      error: (err) => {
+        console.error('Erreur recherche', err);
+      }
+    });
+}
 
   // Enregistrer un nouveau client
 

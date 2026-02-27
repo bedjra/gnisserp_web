@@ -37,4 +37,10 @@ export class ClientService {
     return this.http.get<any>(`${this.apiUrl}/client?page=${page}&size=${size}`);
   }
 
+  // GET: Rechercher des clients
+  search(keyword: string, page: number = 0, size: number = 20): Observable<any> {
+    return this.http.get<any>(
+      `${this.apiUrl}/client/search?keyword=${keyword}&page=${page}&size=${size}`
+    );
+  }
 }
