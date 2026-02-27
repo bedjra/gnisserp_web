@@ -1,6 +1,4 @@
 <div class="all">
-
-
     <div class="contenu">
         <div class="debut">
             <h6>Gestions des Clients</h6>
@@ -13,7 +11,7 @@
         <div class="formcontainer">
             <img src="../../../../assets/Images/Vector.png" alt="Actualiser" class="icon"> &nbsp;&nbsp;
             <div class="searchfield">
-                <input type="text" [(ngModel)]="client.nom" name="nom client" required
+                <input type="text" [(ngModel)]="searchNom" name="searchNom" (ngModelChange)="onSearch()"
                     placeholder="Entrer le nom du Client">
             </div>
             <div class="user">
@@ -27,8 +25,7 @@
 
 
         <div class="arran">
-            <div class="tab">{{ 2 }} <span class="tex">Personnes</span></div>
-
+            <div class="tab">{{ totalClients }} <span class="tex">Personnes</span></div>
         </div>
 
 
@@ -56,7 +53,7 @@
                                 <td>{{ client.id }}</td>
                                 <td>{{ client.nom }}</td>
                                 <td>{{ client.prenom }}</td>
-                                <td>{{ client.sexe }}</td>
+                                <td>{{ client.sexe === 'Masculin' ? 'M' : client.sexe === 'Féminin' ? 'F' : '' }}</td>
                                 <td>{{ client.contact }}</td>
                                 <td>{{ client.a_savoir }}</td>
                             </tr>
@@ -65,10 +62,20 @@
 
                     <!-- Pagination -->
                     <div class="pagination" style="margin-top:10px;">
-                        <button (click)="prevPage()" [disabled]="currentPage === 1">Précédent</button>
-                        <span style="margin: 0 10px;">Page {{ currentPage }} / {{ totalPages }}</span>
-                        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Suivant</button>
+                        <button (click)="prevPage()" [disabled]="currentPage === 1">
+                            Précédent
+                        </button>
+
+                        <span>
+                            Page {{ currentPage }} / {{ totalPages }}
+                        </span>
+
+                        <button (click)="nextPage()" [disabled]="currentPage === totalPages || totalPages === 0">
+                            Suivant
+                        </button>
                     </div>
+
+
                 </div>
 
                 <div class="menuLeft">
@@ -179,26 +186,15 @@
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-
             </div>
-
-
         </menu>
     </div>
 
-    <div class="conta ">
+    <div class="conta" >
         <div class="carre">
-            <div class="carrecontenu" style="background-color: #2C4250;  ; color: #fdfffd;">
-                <p>Nombre de clients
-                <div class="dep">{{ 2 }}</div>
-
+            <div class="carrecontenu" style="background-color: #2C4250; color: #fdfffd;">
+                <p>Nombre de clients</p>
+                <div class="dep">{{ totalClients }}</div> <!-- ✅ était {{ 2 }} -->
             </div>
         </div>
 
@@ -206,7 +202,7 @@
             <div class="carrecontenu" style="background-color: #E67E22; color: #fdfffd;">
 
                 <p>Nombre de clients actifs </p>
-                <div class="dep">{{ 2 }} </div>
+                <div class="dep">{{ totalClients }}</div> <!-- ✅ était {{ 20 }} -->
 
             </div>
         </div>
@@ -214,7 +210,7 @@
             <div class="carrecontenu" style="background-color:#0097E6;   color: #fdfffd;">
                 <p>Nombre les 7 derniers jours</p>
 
-                <div class="dep">{{ 20 }}</div>
+                <div class="dep">{{ totalClients }}</div> <!-- ✅ était {{ 20 }} -->
 
             </div>
         </div>

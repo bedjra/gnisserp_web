@@ -27,20 +27,14 @@ export class ClientService {
   }
 
   // DELETE: Supprimer un client existant
-   delete(clientId: number): Observable<any> {
-  return this.http.delete(`${this.apiUrl}/client/${clientId}`, {
-    responseType: 'text'
-  });
-}
+  delete(clientId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/client/${clientId}`, {
+      responseType: 'text'
+    });
+  }
   // GET: Récupérer tous les clients
-  getAllClients(): Observable<Client[]> {
-  return this.http.get<Client[]>(`${this.apiUrl}/client`).pipe(
-    map((data: any) => data.content ? data.content : data), // ⚡ Important
-    catchError((error) => {
-      console.error('Erreur lors de la récupération des clients :', error);
-      return throwError(() => new Error('Erreur réseau. Veuillez réessayer.'));
-    })
-  );
-}
+  getAllClients(page: number = 0, size: number = 20): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/client?page=${page}&size=${size}`);
+  }
 
 }

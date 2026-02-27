@@ -65,9 +65,14 @@ h6 {
     font-size: 14px;
 }
 
-.vertical-table th,
-.vertical-table td {
+.vertical-table th {
     padding: 5px 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.vertical-table td {
+    padding-left: 20px;
+    padding-top: 11px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -218,11 +223,11 @@ h6 {
 }
 
 .conta {
-    padding-top: 30px;
+    padding-top: 50px;
     display: flex;
-    margin-left: 30px;
     gap: 10px;
     padding-bottom: 20px;
+    background-color: #ccd7de80;
 
 }
 
@@ -246,4 +251,46 @@ h6 {
 .dep {
     font-size: 32px;
     margin-left: 10px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #2563eb;
+    /* bleu moderne */
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+}
+
+.pagination button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.pagination button:disabled {
+    background-color: #cbd5e1;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.pagination span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #374151;
 }

@@ -22,7 +22,7 @@ export class ClientDialogComponent implements OnInit {
   } Client: Client[] = [];      // Tous les clients
   pagedClients: Client[] = []; // Clients affichés sur la page
   currentPage: number = 1;     // Page actuelle
-  clientsPerPage: number = 10; // Nombre de clients par page
+  clientsPerPage: number = 10;
   totalPages: number = 1;
 
   client: Client = {
@@ -33,6 +33,7 @@ export class ClientDialogComponent implements OnInit {
     contact: '',
     a_savoir: ''
   };
+  searchNom: string = '';  // ← champ de recherche séparé
 
 
   constructor(private clientService: ClientService,
@@ -47,43 +48,45 @@ export class ClientDialogComponent implements OnInit {
 
   // Récupération et initialisation de la pagination
 getAllClients(): void {
-  console.log("Appel API lancé"); // debug
-  this.clientService.getAllClients().subscribe({
+  this.clientService.getAllClients(this.currentPage - 1, this.clientsPerPage).subscribe({
     next: (data) => {
-      console.log('Données reçues :', data);
-      console.log('Type de Client:', Array.isArray(this.Client)); // doit afficher true // ⚡ vérifie bien que c'est un tableau
-      this.Client = data; 
-      this.totalPages = Math.ceil(this.Client.length / this.clientsPerPage);
-      this.updatePagedClients();
+      this.pagedClients = data.content;           // ✅ les clients de la page
+      this.totalClients = data.totalElements;     // ✅ total réel (26)
+      this.totalPages = data.totalPages;          // ✅ pages réelles
     },
-    error: (error) => {
-      console.error('Erreur lors de la récupération des clients :', error);
-    }
+    error: (error) => { console.error(error); }
   });
 }
 
-  // Mettre à jour les clients affichés selon la page
-  updatePagedClients(): void {
-    const start = (this.currentPage - 1) * this.clientsPerPage;
-    const end = start + this.clientsPerPage;
-    this.pagedClients = this.Client.slice(start, end);
+// Plus besoin de updatePagedClients() et Client[] — l'API gère tout
+nextPage(): void {
+  if (this.currentPage < this.totalPages) {
+    this.currentPage++;
+    this.getAllClients();
+  }
+}
+
+prevPage(): void {
+  if (this.currentPage > 1) {
+    this.currentPage--;
+    this.getAllClients();
+  }
+}
+
+  // On suppose que pagedClients est déjà défini
+  totalClients: number = 0;    // nombre total affiché
+
+  // Appelle cette fonction après avoir récupéré les clients
+  updateTotalClients() {
+    this.totalClients = this.Client.length;
   }
 
-  // Page suivante
-  nextPage(): void {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-      this.updatePagedClients();
-    }
+  onSearch(): void {
+    this.currentPage = 1;
+    this.getAllClients();
   }
 
-  // Page précédente
-  prevPage(): void {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-      this.updatePagedClients();
-    }
-  }
+
   // Enregistrer un nouveau client
 
   onSave(): void {
